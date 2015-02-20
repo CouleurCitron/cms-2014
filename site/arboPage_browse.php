@@ -303,13 +303,13 @@ if (strlen($_GET['v_comp_path']) > 0)
 // site de travail
 //if (DEF_MENUS_MINISITES == "ON") print(putAfficheSite());
 ?>	  
-<div class="ariane"><span class="arbo2">PAGE&nbsp;>&nbsp;</span><span class="arbo3">Arborescence&nbsp;>&nbsp;
+<div class="ariane"><span class="arbo2">PAGE&nbsp;>&nbsp;</span><span class="arbo3"><?php $translator->echoTransByCode('Ariane_Arborescence'); ?>&nbsp;>&nbsp;
 <?php echo strip_tags(getAbsolutePathString($idSite, $db, $virtualPath)); ?></span></div>
 
 
 <div class="arbo_col_content">
 	<div class="arbo_col_gauche">
-		<div class="bloc_titre">Arborescence :</div>
+		<div class="bloc_titre"><?php $translator->echoTransByCode('Ariane_Arborescence'); ?> :</div>
                 <div class="arborescence">
                      <?php
 		    if ($isMinisite) 
@@ -330,19 +330,17 @@ if (strlen($_GET['v_comp_path']) > 0)
                 
                 <?php /*if ($isMinisite)*/ include_once ("backoffice/cms/site/arbo_picto.php"); ?>
                 
-                <p>Composants contenus dans le dossier en cours:</p>
-                     <table  border="0" cellpadding="5" cellspacing="0" bordercolor="#FFFFFF" class="arbo">
-                       <tr class="col_titre">
-                             <td align="center"><strong>&nbsp;&nbsp;</strong></td>
-                             <td align="center"><strong>&nbsp;&nbsp;Nom&nbsp;</strong></td>
-                             <td align="center"><strong>&nbsp;&nbsp;Gabarit</strong></td>
-                             <td align="center"><strong>&nbsp;Créé<br />le</strong></td>
-                             <td width="5" align="center"><strong>Dernière 
-                               modif.</strong></td>
-                             <td align="center"><strong>Mise en<br />
-                               prod.</strong></td>
-                             <td align="center"><strong>&nbsp;&nbsp;Actions</strong></td>
-                       </tr>
+                <p><?php $translator->echoTransByCode('Composants_contenus'); ?></p>
+                    <table  border="0" cellpadding="5" cellspacing="0" bordercolor="#FFFFFF" class="arbo">
+                        <tr class="col_titre">
+                            <td align="center"><strong>&nbsp;&nbsp;</strong></td>
+                            <td align="center"><strong>&nbsp;&nbsp;<?php $translator->echoTransByCode('Composants_nom'); ?>&nbsp;</strong></td>
+                            <td align="center"><strong>&nbsp;&nbsp;<?php $translator->echoTransByCode('Composants_gabarit'); ?></strong></td>
+                            <td align="center"><strong>&nbsp;<?php $translator->echoTransByCode('Composants_creation'); ?></strong></td>
+                            <td width="5" align="center"><strong><?php $translator->echoTransByCode('Composants_derniere_modif'); ?></strong></td>
+                            <td align="center"><strong><?php $translator->echoTransByCode('Composants_mise_en_prod'); ?></strong></td>
+                            <td align="center"><strong>&nbsp;&nbsp;<?php $translator->echoTransByCode('Composants_actions'); ?></strong></td>
+                        </tr>
                        <?php
                              $current_path =  getNodeInfos($db,$virtualPath);
                              $current_path = rawurlencode($current_path['path']);
@@ -351,7 +349,7 @@ if (strlen($_GET['v_comp_path']) > 0)
                              if((!is_array($contenus)) or (sizeof($contenus)==0)) {
                      ?>
                        <tr>
-                         <td align="center" colspan="7">&nbsp;<strong>Aucun élément à afficher</strong>  </tr>
+                         <td align="center" colspan="7">&nbsp;<strong><?php $translator->echoTransByCode('Composants_pas_d_element'); ?></strong>  </tr>
                      <?php
                              } else {
                                      foreach ($contenus as $k => $page) {
@@ -415,7 +413,7 @@ if (strlen($_GET['v_comp_path']) > 0)
                      ?></td>
                              <td width="20"><a href="renamePage.php?id=<?php echo $page['id'];?>"><img src="/backoffice/cms/img/2013/icone/renommer.png" border="0" title="Renommer la page"></a></td>
                              <td width="20"><a href="/node.php?page=<?php echo $page['id'];?>&amp;" target="_blank" onclick="prompt('Permalien vers cette page:', 'http://<?php echo $_SERVER['HTTP_HOST']; ?>/node.php?page=<?php echo $page['id'];?>&amp;amp;'); return false;" title="Permalien"><img src="/backoffice/cms/img/2013/icone/link.png" alt="Permalien" border="0" /></a></td>
-                             <td width="20"><a href="#" onClick="if(window.confirm('Etes vous sur(e) de vouloir supprimer cette page ?')){ document.location='/backoffice/cms/site/deletePage.php?id=<?php echo $page['id'];?>';}"><img src="/backoffice/cms/img/2013/icone/supprimer.png" border="0" title="Supprimer la page"></a></td>
+                             <td width="20"><a href="#" onClick="if(window.confirm('<?php $translator->echoTransByCode('confirme_suppression'); ?>')){ document.location='/backoffice/cms/site/deletePage.php?id=<?php echo $page['id'];?>';}"><img src="/backoffice/cms/img/2013/icone/supprimer.png" border="0" title="Supprimer la page"></a></td>
                      </tr>
                      </table>
                      <!--<a href="javascript:page_maj(<?php echo $page['id'];?>)">modifier</a>&nbsp;--></td>

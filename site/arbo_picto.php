@@ -85,7 +85,7 @@ if (is_get("action")) {
       <td align="center" valign="top" class="arbo">
         <!-- contenu des actions -->
        <b><br />
-      Op&eacute;rations sur le dossier en cours :</b><br />
+      <?php $translator->echoTransByCode('Operations_dossier_courant'); ?></b><br />
       <br />
       <table width="300" border="0" cellpadding="5" cellspacing="0" bgcolor="#F0F1F3">       
           <tr bgcolor="#FFFFFF"> 

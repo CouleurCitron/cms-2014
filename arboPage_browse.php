@@ -415,7 +415,7 @@ if ($bExisteligne_page == 1) {
 ?></td>
 	<td width="20"><a href="renamePage.php?id=<?php echo $page['id'];?>"><img src="/backoffice/cms/img/2013/icone/renommer.png" border="0" title="Renommer la page"></a></td>
 	<td width="20"><a href="/node.php?page=<?php echo $page['id'];?>&amp;" target="_blank" onclick="prompt('Permalien vers cette page:', 'http://<?php echo $_SERVER['HTTP_HOST']; ?>/node.php?page=<?php echo $page['id'];?>&amp;amp;'); return false;" title="Permalien"><img src="/backoffice/cms/img/2013/icone/link.png" alt="Permalien" border="0"/></a></td>
-	<td width="20"><a href="#" onClick="if(window.confirm('Etes vous sur(e) de vouloir supprimer cette page ?')){ document.location='site/deletePage.php?id=<?php echo $page['id'];?>';}"><img src="/backoffice/cms/img/2013/icone/supprimer.png" border="0" title="Supprimer la page"></a></td>
+	<td width="20"><a href="#" onClick="if(window.confirm('<?php $translator->echoTransByCode('confirme_suppression'); ?>')){ document.location='site/deletePage.php?id=<?php echo $page['id'];?>';}"><img src="/backoffice/cms/img/2013/icone/supprimer.png" border="0" title="Supprimer la page"></a></td>
 </tr>
 </table>
 <!--<a href="javascript:page_maj(<?php echo $page['id'];?>)">modifier</a>&nbsp;--></td>

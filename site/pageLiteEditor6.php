@@ -440,7 +440,7 @@ if (isset($_SESSION["pageLiteEditor6_redirect"]) && $_SESSION["pageLiteEditor6_r
 				// PAGE GENEREE
 				$arrayresult = generateFile($oPage);
 
-				$sMessage_generate = "<span class='arbo'>La page a été générée car tous ses contenus sont en ligne</span>";
+				$sMessage_generate = "<span class='arbo'>".$translator->getTransByCode('page_genere')."</span>";
 			} else {
 				// PAGE NON GENEREE			
 				$sMessage_generate = "<span class='arbo'><font color=red>La page n'a pas été générée car tous ses contenus ne sont pas en ligne</font>";
@@ -453,8 +453,8 @@ if (isset($_SESSION["pageLiteEditor6_redirect"]) && $_SESSION["pageLiteEditor6_r
 			if (is_array($arrayresult)) {
 ?>
 	<p class="arbo"><?php echo $sMessage_generate; ?></p>	
-	<p class="arbo">Le fichier <?php echo $arrayresult['filename']; ?> a été créé dans le dossier <?php echo $arrayresult['foldername']; ?>.</p>
-	<p class="arbo">chemin complet : <b><?php echo $_SERVER['DOCUMENT_ROOT']."/content".$arrayresult['path'].$arrayresult['filename']; ?></b></p>
+	<p class="arbo"><?php $translator->echoTransByCode('Le_fichier'); ?> <?php echo $arrayresult['filename']; ?> <?php $translator->echoTransByCode('cree_dans_le_dossier'); ?> <?php echo $arrayresult['foldername']; ?>.</p>
+	<p class="arbo"><?php $translator->echoTransByCode('chemin_complet'); ?> <b><?php echo $_SERVER['DOCUMENT_ROOT']."/content".$arrayresult['path'].$arrayresult['filename']; ?></b></p>
 		<?php
 			} else {
 				// message de non génération
@@ -464,7 +464,7 @@ if (isset($_SESSION["pageLiteEditor6_redirect"]) && $_SESSION["pageLiteEditor6_r
 			}
 			// visualiser la page : version de brouillon et version en ligne
 		?>
-		<p class="arbo">Visualiser la page <?php echo $oPage->getName_page(); ?>.php</p>
+		<p class="arbo"><?php $translator->echoTransByCode('Visualiser_la_page'); ?> <?php echo $oPage->getName_page(); ?>.php</p>
 <?php		
 global $db;
 

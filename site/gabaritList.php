@@ -56,7 +56,7 @@ $contenus = getListGabarits($_SESSION['idSite_travail']);
 
   <table cellpadding="5" cellspacing="0" border="0" bordercolor="#FFFFFF" class="arbo">
 	<tr class="col_titre">
-		<td align="center"><strong>&nbsp;&nbsp;Nom&nbsp;</strong></td>
+		<td align="center"><strong>&nbsp;&nbsp;<?php $translator->echoTransByCode('Composants_nom'); ?>&nbsp;</strong></td>
 <?php
 if ($bAffichSite) {
 ?>
@@ -64,10 +64,9 @@ if ($bAffichSite) {
 <?php
 }
 ?>
-	  <td align="center"><strong>&nbsp;Créé<br>
-	  le</strong></td>
-	<td align="center"><strong>Dernière modif.</strong></td>
-	<td colspan="5" align="center"><strong>&nbsp;&nbsp;Actions</strong><strong>&nbsp;</strong></td>
+	  <td align="center"><strong>&nbsp;<?php $translator->echoTransByCode('Composants_creation'); ?></strong></td>
+	<td align="center"><strong><?php $translator->echoTransByCode('Composants_derniere_modif'); ?></strong></td>
+	<td colspan="5" align="center"><strong>&nbsp;&nbsp;<?php $translator->echoTransByCode('Composants_actions'); ?></strong><strong>&nbsp;</strong></td>
 	</tr>
   <?php
 	// tableau vide

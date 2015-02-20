@@ -197,10 +197,10 @@ function annulerForm(){
 <div class="ariane">
 <?php
 if ($oPage->get_isgabarit_page()==1){
-	echo '<span class="arbo2">GABARIT&nbsp;>&nbsp;</span><span class="arbo3">Propriétés du gabarit</span>';
+	echo '<span class="arbo2">GABARIT&nbsp;>&nbsp;</span><span class="arbo3">'.$translator->getTransByCode('proprietes_du_gabarit').'</span>';
 }
 else{
-	echo '<span class="arbo2">PAGE&nbsp;>&nbsp;</span><span class="arbo3">Propriétés de la page</span>';
+	echo '<span class="arbo2">PAGE&nbsp;>&nbsp;</span><span class="arbo3">'.$translator->getTransByCode('proprietes_de_la_page').'</span>';
 }
 ?>
 </div>
@@ -234,26 +234,26 @@ Calendar.setup({
 </script>
 &nbsp;&nbsp;&nbsp;&nbsp;aucune&nbsp;<input name="neverPerempt" type="checkbox" class="arbo" id="neverPerempt" onClick="if(this.checked) {document.getElementById('datePeremption').value=''}" value="true"></p>
  --> 
-<p><strong>Titre de la page</strong><br />
+<p><strong><?php $translator->echoTransByCode('titre_de_la_page'); ?></strong><br />
 <input name="pagetitle" type="text" class="arbo" size="70" maxlength="255" value="<?php echo stripslashes($titre); ?>" /></p>
 
-<p><strong>Mots clefs <small>(séparés par des virgules)</small></strong><br />
+<p><strong><?php $translator->echoTransByCode('mots_cles'); ?></strong><br />
 <textarea name="pagekeywords" class="arbo textareaEdit"><?php echo stripslashes($mots); ?></textarea></p>
 
-<p><strong>Description</strong><br /> 
+<p><strong><?php $translator->echoTransByCode('Description'); ?></strong><br /> 
 <textarea name="description" class="arbo textareaEdit"><?php echo stripslashes($description); ?></textarea></p>
 
 <?php if (defined("DEF_PAGE_VIGNETTE") && DEF_PAGE_VIGNETTE == false ) {
 }
 else  { ?>
-<p><strong>Vignette</strong><br />
+<p><strong><?php $translator->echoTransByCode('Vignette'); ?></strong><br />
 <script type="text/javascript">
 function SetUrl(fileUrl){
 	document.getElementById('pagethumb').value=fileUrl;
 }
 </script>
 <input name="pagethumb" id="pagethumb" type="text" class="arbo" value="<?php echo stripslashes($thumb); ?>" size="100" maxlength="768" />
-<a href="javascript:openBrWindow('/backoffice/cms/lib/FCKeditor/editor/filemanager/browser/default/browser.html?Connector=connectors/php/connector.php&Type=Image','pickImg',700,600)">choisir</a></p> 
+<a href="javascript:openBrWindow('/backoffice/cms/lib/FCKeditor/editor/filemanager/browser/default/browser.html?Connector=connectors/php/connector.php&Type=Image','pickImg',700,600)"><?php $translator->echoTransByCode('choisir'); ?></a></p> 
 <?php } ?>
 
 <p><?php
@@ -325,7 +325,7 @@ if ($oPage->get_isgabarit_page()==0){ // pages only
 				}
 			</script>";
 
-		echo "<strong>Objets Liés</strong><br />";
+		echo "<strong>".$translator->getTransByCode('Objets_Lies')."</strong><br />";
 		
 		$prevSerial = NULL;
 			
@@ -460,7 +460,7 @@ else{ // gabarit only
 	}
 }
 ?></p>
-<input name="btEnregistrer" type="button" class="arbo" onClick="javascript:enregistrer()" value="Enregistrer">
+<input name="btEnregistrer" type="button" class="arbo" onClick="javascript:enregistrer()" value="<?php $translator->echoTransByCode('Enregistrer'); ?>">
 </form>
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/append.php');

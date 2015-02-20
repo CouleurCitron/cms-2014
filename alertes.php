@@ -67,7 +67,7 @@ foreach($listePage as $k => $page) {
  <td>&nbsp;<?php echo $infos['name']; ?>&nbsp;</td>
  <td>&nbsp;<?php echo $infos['titre']; ?>&nbsp;</td>
  <td align="center">&nbsp;<a href="pageModif.php?id=<?php echo $page['id'];?>"><img src="/backoffice/cms/img/2013/icone/modifier.png" border="0"></a>&nbsp;</td>
-<td align="center">&nbsp;<a href="#" onClick="if(window.confirm('Etes vous sur(e) de vouloir supprimer cette page ?')){ document.location='deletePage.php?id=<?php echo $page['id'];?>';}"><img src="/backoffice/cms/img/2013/icone/supprimer.png" border="0" onMouseOut='kill();' onMouseOver='popup("Supprimer la page");'></a>&nbsp;</td>
+<td align="center">&nbsp;<a href="#" onClick="if(window.confirm('<?php $translator->echoTransByCode('confirme_suppression'); ?>')){ document.location='deletePage.php?id=<?php echo $page['id'];?>';}"><img src="/backoffice/cms/img/2013/icone/supprimer.png" border="0" onMouseOut='kill();' onMouseOver='popup("Supprimer la page");'></a>&nbsp;</td>
 </tr>
 <?php
 }

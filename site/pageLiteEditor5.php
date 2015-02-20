@@ -240,8 +240,8 @@ function updateCheckBox() {
 
 --></script>
 
-<div class="ariane"><span class="arbo2">PAGE >&nbsp;</span><span class="arbo3"><?php echo $sTitre; ?> une page&nbsp;>&nbsp;
-Etape 4 : Propriétés de la page</span></div>
+<div class="ariane"><span class="arbo2">PAGE >&nbsp;</span><span class="arbo3"><?php $translator->echoTransByCode('Creer_une_page'); ?>&nbsp;>&nbsp;
+<?php $translator->echoTransByCode('Etape_4'); ?></span></div>
 
 <form action="pageLiteEditor6.php?id=<?php echo $_GET['id']; ?>&idGab=<?php echo $_GET['idGab']?>&idThe=<?php echo $_GET['idThe']?>" method="post" name="savePage" class="arbo">
 <input type="hidden" name="nomPage" id="nomPage" value="<?php echo $_POST['name']; ?>"/>
@@ -259,21 +259,21 @@ Veuillez saisir une date de péremption&nbsp;:&nbsp;<input name="datePeremption" 
 &nbsp;&nbsp;--&nbsp;&nbsp;aucune&nbsp;<input name="neverPerempt" type="checkbox" class="arbo" id="neverPerempt" onClick="if(this.checked) {document.getElementById('datePeremption').value=''}" value="true">
 <br>
 <br>-->
-Titre de la page :&nbsp;
+<?php $translator->echoTransByCode('titre_de_la_page'); ?>&nbsp;
 <br>
 <input name="pagetitle" id="pagetitle" type="text" class="arbo" maxlength="255" value="<?php echo stripslashes($titre); ?>" />
 <br>
 <br>
-Mots clefs <small>(séparés par des virgules)</small>:&nbsp;
+<?php $translator->echoTransByCode('mots_cles'); ?>&nbsp;
 <br>
 <input name="pagekeywords" id="pagekeywords" type="text" class="arbo" value="<?php echo stripslashes($mots); ?>" size="100" maxlength="768" />
 <br>
 <br>
-Description :<br> 
+<?php $translator->echoTransByCode('Description'); ?><br> 
 <textarea name="description" id="description" class="arbo textareaEdit"><?php echo stripslashes($description); ?></textarea>
 <br>
 <br>
-Vignette :&nbsp;
+<?php $translator->echoTransByCode('Vignette'); ?>&nbsp;
 <br>
 <script type="text/javascript">
 function SetUrl(fileUrl){
@@ -281,7 +281,7 @@ function SetUrl(fileUrl){
 }
 </script>
 <input name="pagethumb" id="pagethumb" type="text" class="arbo" value="<?php echo stripslashes($thumb); ?>" size="100" maxlength="768" />
-<a href="javascript:openBrWindow('/backoffice/cms/lib/FCKeditor/editor/filemanager/browser/default/browser.html?Connector=connectors/php/connector.php&Type=Image','pickImg',700,600)">choisir</a><br>
+<a href="javascript:openBrWindow('/backoffice/cms/lib/FCKeditor/editor/filemanager/browser/default/browser.html?Connector=connectors/php/connector.php&Type=Image','pickImg',700,600)"><?php $translator->echoTransByCode('choisir'); ?></a><br>
 <br>
 </div>
 <input name="Enregistrer" type="button" class="arbo" onClick="if(validate_form()){ submit();}" value="Suite >>" id="bt_suite">
