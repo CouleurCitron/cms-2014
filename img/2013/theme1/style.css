@@ -402,7 +402,9 @@ color:#000000;
 
 /********** UTILISATEURS ****************/
 #menu li.niv1.Utilisateurs.active a,
-#menu.close_menu li.niv1.Utilisateurs ul{
+#menu.close_menu li.niv1.Utilisateurs ul,
+#menu li.niv1.Users.active a,
+#menu.close_menu li.niv1.Users ul{
 	background-color:#3898cf;
 }
 #menu li.niv1.Utilisateurs.active li.niv2.active a,
@@ -415,7 +417,9 @@ color:#000000;
 
 /********** GABARITS ****************/
 #menu li.niv1.Gabarits.active a,
-#menu.close_menu li.niv1.Gabarits ul{
+#menu.close_menu li.niv1.Gabarits ul,
+#menu li.niv1.Templates.active a,
+#menu.close_menu li.niv1.Templates ul{
 	background-color:#97cce5;
 }
 #menu li.niv1.Gabarits.active li.niv2.active a,
@@ -441,7 +445,9 @@ color:#000000;
 
 /********** BRIQUES ****************/
 #menu li.niv1.Briques.active a,
-#menu.close_menu li.niv1.Briques ul{
+#menu.close_menu li.niv1.Briques ul,
+#menu li.niv1.Bricks.active a,
+#menu.close_menu li.niv1.Bricks ul{
 	background-color:#aebd27;
 }
 #menu li.niv1.Briques.active li.niv2.active a,
@@ -454,7 +460,9 @@ color:#000000;
 
 /********** CONTENUS ****************/
 #menu li.niv1.Contenus.active a,
-#menu.close_menu li.niv1.Contenus ul{
+#menu.close_menu li.niv1.Contenus ul,
+#menu li.niv1.Contents.active a,
+#menu.close_menu li.niv1.Contents ul{
 	background-color:#718003;
 }
 #menu li.niv1.Contenus.active li.niv2.active a,
@@ -467,7 +475,9 @@ color:#000000;
 
 /********** FICHIERS ****************/
 #menu li.niv1.Fichiers.active a,
-#menu.close_menu li.niv1.Fichiers ul{
+#menu.close_menu li.niv1.Fichiers ul,
+#menu li.niv1.Files.active a,
+#menu.close_menu li.niv1.Files ul{
 	background-color:#b17b1b;
 }
 #menu li.niv1.Fichiers.active li.niv2.active a,

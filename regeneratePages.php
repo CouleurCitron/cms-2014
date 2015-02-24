@@ -238,11 +238,11 @@ function stripAll() {
 </script>
 
 <form name="updatePage" method="post" action="/backoffice/cms/updatePageFromBrique.php">
-<span class="arbo"><strong><u>Sélectionnez les pages à regénérer&nbsp;:&nbsp;</u>
+<span class="arbo"><strong><u><?php $translator->echoTransByCode('Selectionner_les_pages_a_regenerer'); ?></u>
 </strong></span>
 <ul>
 <li class="arbo">
-<input type="checkbox" name="checkAll" id="checkAll" title="Cocher/Decocher tout" onclick="stripAll();" checked />&nbsp;&nbsp;&nbsp;&nbsp;Tout Cocher / Décocher
+<input type="checkbox" name="checkAll" id="checkAll" title="<?php $translator->echoTransByCode('Cocher_decocher'); ?>" onclick="stripAll();" checked />&nbsp;&nbsp;&nbsp;&nbsp;<?php $translator->echoTransByCode('Cocher_decocher'); ?>
 <?php
 		$Pages = "";
  
@@ -262,7 +262,7 @@ function stripAll() {
 
 <li class="arbo">
   <input type="checkbox" name="togenerate[]" id="togenerate[]"  value="<?php echo $idpage; ?>" onclick="verif_case()" checked />
-  &nbsp;&nbsp;&nbsp;&nbsp;<?php echo  ($oCms_page->getIsgabarit_page()==1) ? "Gabarit" : "Page" ?><?php if(in_array($idpage,$aPageToGenerateAfterGabarit)&&!in_array($idpage,$listPage)) echo " liée" ?>&nbsp;&nbsp;&nbsp;&nbsp;<b><?php echo $page['titre']; ?></b>&nbsp;(&nbsp;<?php echo  $urlDisplay ; ?>.php&nbsp;)&nbsp;&nbsp;&nbsp;<a href="<?php echo  ($oCms_page->getIsgabarit_page()==1) ? "/backoffice/cms/site/previewGabarit.php?id=".$idpage : "/content".$url.".php" ?>" target="_blank" class="arbo">Voir <?php echo  ($oCms_page->getIsgabarit_page()==1) ? "le gabarit" : "la page" ?></a></li>
+  &nbsp;&nbsp;&nbsp;&nbsp;<?php echo  ($oCms_page->getIsgabarit_page()==1) ? $translator->echoTransByCode('Gabarit') : "Page" ?><?php if(in_array($idpage,$aPageToGenerateAfterGabarit)&&!in_array($idpage,$listPage)) echo " liée" ?>&nbsp;&nbsp;&nbsp;&nbsp;<b><?php echo $page['titre']; ?></b>&nbsp;(&nbsp;<?php echo  $urlDisplay ; ?>.php&nbsp;)&nbsp;&nbsp;&nbsp;<a href="<?php echo  ($oCms_page->getIsgabarit_page()==1) ? "/backoffice/cms/site/previewGabarit.php?id=".$idpage : "/content".$url.".php" ?>" target="_blank" class="arbo"> <?php echo  ($oCms_page->getIsgabarit_page()==1) ? $translator->echoTransByCode('Voir_le_gabarit') : $translator->echoTransByCode('Voir_la_page') ?></a></li>
 <span class="arbo">
 <?php
 		} // fin foreach($listAllPage as $idpage) {
@@ -272,7 +272,7 @@ function stripAll() {
 <input type="hidden" name="pageDisplayed" id="pageDisplayed" value="<?php echo $Pages;?>" />
 <input type="hidden" name="connectSite" id="connectSite" value="<?php echo $_SESSION['idSite_travail'];?>" />
 
-<input name="envoyer" id="boutonvalid" type="button" class="arbo" value="Regénérer les pages selectionnées" onclick="alert_case()">
+<input name="envoyer" id="boutonvalid" type="button" class="arbo" value="<?php $translator->echoTransByCode('Regenerer_les_pages_selectionnees'); ?>" onclick="alert_case()">
 </form>
 <?php
 	} // fin if (sizeof($listAllPage)) {
