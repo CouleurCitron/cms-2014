@@ -80,7 +80,7 @@ $conf.= "config.contentsCss = '$file_spaw';
 	} else {
 		$baliseauto = 'CKEDITOR.ENTER_P';
 	}
-
+    if( !defined( 'DEF_FILEMANAGER' ) || DEF_FILEMANAGER == 'filemanager-master' ){
 	$conf.= "
 
 	//Config balise auto p ou br 
@@ -106,6 +106,7 @@ $conf.= "	config.filebrowserFlashBrowseUrl = '/backoffice/cms/lib/ckeditor/Filem
 	
 	config.filebrowserUploadUrl = '/backoffice/cms/lib/ckeditor/Filemanager-master/index.html?dir=/content/".$_SESSION['rep_travail']."/';
 ";
+        }
 	if( preg_match('/newsletter/msi', $_SERVER['HTTP_REFERER'])){
 		$conf.= "config.filebrowserImageUploadUrl = '';
 		";
