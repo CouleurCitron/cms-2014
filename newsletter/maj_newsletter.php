@@ -576,22 +576,33 @@ if (($bUseCriteres == 0)||($bAllowEdit == 1)){
  
 		echo " 
 	 
-		<textarea cols=\"70\" id=\"fNews_html\" name=\"fNews_html\" rows=\"30\" width=\"800\" height=\"800\">".htmlFCKcompliant($sBodyHTML)."</textarea>
+		<textarea cols=\"70\" id=\"fNews_html\" name=\"fNews_html\" rows=\"30\" width=\"800\" height=\"800\">".htmlFCKcompliant($sBodyHTML)."</textarea>";
+                 ?>
 		<script>
- 
-			function init_ck () {  
-				".$ck."
-			}
+                    var roxyFileman = '/backoffice/cms/lib/ckeditor/fileman/index.html';
+
+                    function init_ck () {  
+                            CKEDITOR.replace( 'fNews_html', {
+
+                                customConfig : '/backoffice/cms/lib/ckeditor/config.php',
+                                <?php if( defined( 'DEF_FILEMANAGER' ) && DEF_FILEMANAGER == 'fileman' ){ ?>
+                                filebrowserBrowseUrl:roxyFileman,
+                                filebrowserImageBrowseUrl:roxyFileman+'?type=image',
+                                removeDialogTabs: 'link:upload;image:upload'
+                                <?php } ?>
+                            });
+                    }
+                        <?php
 			
-			if (navigator.userAgent.toLowerCase().indexOf(\"chrome\") != -1) {
+			echo "if (navigator.userAgent.toLowerCase().indexOf(\"chrome\") != -1) {
 				
 				setTimeout(\"init_ck()\", 500); 
 			}
 			else {
 				init_ck();
-			}
+			}"; ?>
 		</script> 
-		";
+                <?php
 	}
 	else {
 		$oFCKeditor->BasePath = '/backoffice/cms/lib/FCKeditor/' ;	// '/FCKeditor/' is the default value.
