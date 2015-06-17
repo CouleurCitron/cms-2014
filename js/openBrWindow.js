@@ -24,7 +24,7 @@ function MM_openBrWindow(theURL,winName,features) { //v2.0
   window.open(theURL,winName,features);
 }
 
-function openWYSYWYGWindow(theURL,winName,width,height,features,bCentre,idField,idForm) {
+function openWYSYWYGWindow(theURL,winName,width,height,features,bCentre,idField,idForm, Type) {
 	
   /**
   width et height sont deprecated  
@@ -33,8 +33,8 @@ function openWYSYWYGWindow(theURL,winName,width,height,features,bCentre,idField,
   
   var htmlcode = document.forms[idForm].elements[idField].value;
   
-  if (theURL.indexOf("?") < 0 ) theURL = theURL + "?";
-  theURL = theURL + "idField="+idField+"&idForm="+idForm+"&";
+  if (theURL.indexOf("?") < 0 ) theURL = theURL + "?vars";
+  theURL = theURL + "&idField="+idField+"&idForm="+idForm+"&Type="+Type+"&";
   
   var window_width = Math.round(screen.width*.8);
   var window_height = Math.round(screen.height*.8);
