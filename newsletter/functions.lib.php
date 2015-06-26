@@ -245,6 +245,9 @@ function sendNewsletter ( $id , $idIns, $idLdj, $addy, $themeNews, $bUseCriteres
 		$sBodyTEXT = "Si vous n'arrivez pas à lire cet email, copiez-coller ce lien :\n";
 		$sBodyTEXT.= "http://".$_SERVER['HTTP_HOST']."/frontoffice/newsletter/read_newsletter.php?idnew=".$oNews->get_id()."&idInslien=1&ins=".md5($idIns);	
 		
+		$sBodyTEXT.= strip_tags($sBodyHTML);
+		
+		
 		$from = getNoReply ($id);
 		$replyto = getReplyTo ($id);
 		
@@ -327,10 +330,13 @@ function sendNewsletter ( $id , $idIns, $idLdj, $addy, $themeNews, $bUseCriteres
 				if (defined("DEF_USEPHPMAILFUNCTION") && (strval(DEF_USEPHPMAILFUNCTION)=="1")){
 					$bSend = (bool)  mail($addy, $sSubject, $message, $headers);
 				}
-				else{
-					//$bSend = (bool)  multiPartMail($addy , $sSubject , $message_html , $message_text, $from, "", "", DEF_MAIL_HOST);
-					$bSend = (bool)  multiPartMail_file($addy , $sSubject , $message_html , $message_text, $from, $attachPath, $aName_file, $typeAttach='text/plain', DEF_MAIL_HOST, $replyto);
-						
+				else{					
+					if (count($aName_file)>0){ // si on a des fichiers
+						$bSend = (bool)  multiPartMail_file($addy , $sSubject , $message_html , $message_text, $from, $attachPath, $aName_file, $typeAttach='text/plain', DEF_MAIL_HOST, $replyto);
+					}
+					else{
+						$bSend = (bool)  multiPartMail($addy , $sSubject , $message_html , $message_text, $from, "", "", DEF_MAIL_HOST, $replyto);
+					}						
 				} 
 			
 			}
@@ -342,9 +348,12 @@ function sendNewsletter ( $id , $idIns, $idLdj, $addy, $themeNews, $bUseCriteres
 				$bSend = (bool)  mail($addy, $sSubject, $message, $headers);
 			}
 			else{
-				//$bSend = (bool)  multiPartMail($addy , $sSubject , $message_html , $message_text, $from, "", "", DEF_MAIL_HOST);
-				$bSend = (bool)  multiPartMail_file($addy , $sSubject , $message_html , $message_text, $from, $attachPath, $aName_file, $typeAttach='text/plain', DEF_MAIL_HOST, $replyto);
-					
+				if (count($aName_file)>0){ // si on a des fichiers
+					$bSend = (bool)  multiPartMail_file($addy , $sSubject , $message_html , $message_text, $from, $attachPath, $aName_file, $typeAttach='text/plain', DEF_MAIL_HOST, $replyto);
+				}
+				else{
+					$bSend = (bool)  multiPartMail($addy , $sSubject , $message_html , $message_text, $from, "", "", DEF_MAIL_HOST, $replyto);
+				}					
 			} 
 		}
 		//$bSend = (bool)  multiPartMail_file('thao@couleur-citron.com' , 'test'.$sSubject , $addy.$lang.$message_html , $message_text, $from, $attachPath, $aName_file, $typeAttach='text/plain', DEF_MAIL_HOST, $replyto);
