@@ -584,6 +584,19 @@ color:#000000;
 	color:#000000;	
 }
 
+/********** SLIDESHOW 5 ****************/
+#menu li.niv1.Slideshow-5.active a,
+#menu.close_menu li.niv1.Slideshow-5 ul{
+	background-color:#c7440b;
+}
+#menu li.niv1.Slideshow-5.active li.niv2.active a,
+#menu li.niv1.Slideshow-5.active li.niv2.active li.active a{
+	color:#c7440b;
+}
+#menu li.niv1.Slideshow-5.active li.niv2.active li a{
+	color:#000000;	
+}
+
 /********** FORMULAIRE ****************/
 #menu li.niv1.Formulaire.active a,
 #menu.close_menu li.niv1.Formulaire ul{
