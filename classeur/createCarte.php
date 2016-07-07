@@ -46,7 +46,7 @@ if (strlen($id) > 0 ) {
   }
   
 </script>
-<link href="/css/bo.css" rel="stylesheet" type="text/css" />
+<link href="/backoffice/cms/css/bo.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
 <!--
 body {

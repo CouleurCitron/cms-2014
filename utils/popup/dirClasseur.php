@@ -85,7 +85,7 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 include_once('include/utils/dir.lib.php');
 
 ?>
-<link href="/css/bo.css" rel="stylesheet" type="text/css" />
+<link href="/backoffice/cms/css/bo.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
 <!--
 body {
