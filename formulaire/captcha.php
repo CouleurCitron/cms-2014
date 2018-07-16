@@ -1,6 +1,5 @@
 <?php
-include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
-	
+include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');	
 require_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/lib/recaptcha/recaptchalib.php');
 
 if(defined('DEV_RECAPTCHA_SECRETKEY')){
@@ -23,12 +22,11 @@ $resp = recaptcha_check_answer (	$privatekey,
 									$_POST["recaptcha_response_field"],
 									array(),
 									$_POST["recaptcha_version"]);
- 
-if (!$resp->is_valid) {
-		echo  0;
 
-	/* error_log('recaptcha '.$resp->error);
-	echo "--------------<br />";
+if (!$resp->is_valid) {
+	echo  0;
+	//error_log('recaptcha '.$resp->error);
+	/*echo "--------------<br />";
 	echo $resp->error;
 
 	echo "<pre> _POST: =========\n";
@@ -36,6 +34,5 @@ if (!$resp->is_valid) {
 	echo "\n=========\n</pre>"; */
 }
 else {
-		echo 1;
-}
-	
+	echo 1;
+}	
