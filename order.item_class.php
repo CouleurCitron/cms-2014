@@ -195,10 +195,12 @@ function constructList($idParent="", $stack){
 $ordonable_champs = $stack[0]["attrs"]["ORDONABLE"];
 
 ?>
+<a href="javascript:history.back();" class="arbo2">Retour &agrave; la liste</a>
+
 <ol class="sortablelist">
     <?php echo constructList("", $stack); ?>
 </ol>
-
+<a href="javascript:history.back();" class="arbo2">Retour &agrave; la liste</a>
 
 <script>
      $(document).ready(function(){
